@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34C95310-35C4-4F91-844C-2DB2F42CBE90}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>webTRON_Management_Software</RootNamespace>
+    <AssemblyName>webTRON Management Software</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>packages\FluentValidation.10.3.3\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Downloads\New folder\PcWonderland.com_Guna_UI_Framework_Ultimate_2\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PasswordGenerator, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PasswordGenerator.2.0.5\lib\netstandard2.0\PasswordGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Medicine.cs" />
+    <Compile Include="Models\Password.cs" />
+    <Compile Include="Models\Prescription.cs" />
+    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\UserEmail.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\History.cs" />
+    <Compile Include="Utils\Medicine.cs">
+      <CustomToolNamespace>/d</CustomToolNamespace>
+    </Compile>
+    <Compile Include="Utils\MedicineRow.cs" />
+    <Compile Include="Utils\Printer.cs" />
+    <Compile Include="Utils\QRCodeGenerator.cs" />
+    <Compile Include="Utils\Validators\EmailValidator.cs" />
+    <Compile Include="Utils\Validators\PasswordValidator.cs" />
+    <Compile Include="Views\Accountant\ChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\ChangeInfo.Designer.cs">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\RenewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\RenewPatient.Designer.cs">
+      <DependentUpon>RenewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\SearchAndUpdatePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\SearchAndUpdatePatient.Designer.cs">
+      <DependentUpon>SearchAndUpdatePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ChangeInfo.Designer.cs">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\ChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\ChangeInfo.Designer.cs">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Others.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Others.Designer.cs">
+      <DependentUpon>Others.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Patients.Designer.cs">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Tests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Tests.Designer.cs">
+      <DependentUpon>Tests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\CreateAccount.Designer.cs">
+      <DependentUpon>CreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Medicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Medicine.Designer.cs">
+      <DependentUpon>Medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\TreatmentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\TreatmentWindow.Designer.cs">
+      <DependentUpon>TreatmentWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\ChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\ChangeInfo.Designer.cs">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Lab Assistant\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\ChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Others\ChangeInfo.Designer.cs">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Others\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Others\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Others\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Utilities\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Utilities\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Utilities\ForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Utilities\ForgetPassword.Designer.cs">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\CreateNewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\CreateNewPatient.Designer.cs">
+      <DependentUpon>CreateNewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Landing Window\LandingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Landing Window\LandingWindow.designer.cs">
+      <DependentUpon>LandingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Views\Others\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Others\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Email.cs" />
+    <Compile Include="Utils\Generator.cs" />
+    <Compile Include="Utils\InsertModerator.cs" />
+    <EmbeddedResource Include="Views\Accountant\ChangeInfo.resx">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\RenewPatient.resx">
+      <DependentUpon>RenewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\SearchAndUpdatePatient.resx">
+      <DependentUpon>SearchAndUpdatePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ChangeInfo.resx">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\ChangeInfo.resx">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Others.resx">
+      <DependentUpon>Others.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Patients.resx">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Tests.resx">
+      <DependentUpon>Tests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\CreateAccount.resx">
+      <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\Medicine.resx">
+      <DependentUpon>Medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctor\TreatmentWindow.resx">
+      <DependentUpon>TreatmentWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Lab Assistant\ChangeInfo.resx">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Lab Assistant\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Lab Assistant\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Lab Assistant\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\ChangeInfo.resx">
+      <DependentUpon>ChangeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Utilities\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Utilities\ForgetPassword.resx">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Accountant\CreateNewPatient.resx">
+      <DependentUpon>CreateNewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Landing Window\LandingWindow.resx">
+      <DependentUpon>LandingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man_picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_green.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webTRONLogoWithSlogan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle_curved_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallPasswordIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallUserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topLeftCircles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webTronLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueUserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slogan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RectangleWithBothSideCurved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlusSign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewPatientCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RectangleCurved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_icon_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_sucess_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_danger_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_danger_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_close_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_sucess_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prescribe_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healthicons_water-treatment.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
